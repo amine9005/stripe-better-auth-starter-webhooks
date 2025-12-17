@@ -42,3 +42,5 @@ next-env.d.ts
 
 .continue
 .unlighthouse
+*storybook.log
+storybook-static

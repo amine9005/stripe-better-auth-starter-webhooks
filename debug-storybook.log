@@ -1,72 +1,166 @@
-[00:02:50.028] [INFO] [36mInitializing Storybook[39m
-[00:02:53.101] [DEBUG] Getting package.json info for C:/Users/Main/Documents/Web Development/NextJs/Mongo/stripe-better-auth-starter/package.json...
-[00:02:53.102] [DEBUG] Getting CLI versions from NPM for storybook...
-[00:02:53.102] [DEBUG] Executing command: yarn info storybook version --json
-[00:02:59.517] [INFO] Adding Storybook version 10.1.9 to your project
-[00:02:59.519] [DEBUG] Project type detected: nextjs
-[00:02:59.520] [DEBUG] Using cached package.json for C:\Users\Main\Documents\Web Development\NextJs\Mongo\stripe-better-auth-starter\package.json...
-[00:02:59.609] [INFO] Framework detected: nextjs-vite
-[00:02:59.610] [DEBUG] Getting installed version for vitest...
-[00:02:59.610] [DEBUG] Executing command: yarn list --pattern "vitest" --json --recursive vitest
-[00:03:02.703] [DEBUG] Installed version for vitest: null
-[00:03:02.703] [DEBUG] Getting installed version for msw...
-[00:03:02.703] [DEBUG] Executing command: yarn list --pattern "msw" --json --recursive msw
-[00:03:05.845] [DEBUG] Installed version for msw: null
-[00:03:39.429] [PROMPT] New to Storybook? {"choice":true}
-[00:03:39.430] [INFO] Storybook collects completely anonymous usage telemetry. We use it to shape Storybook's roadmap and prioritize features. You can learn more, including how to opt out, at https://storybook.js.org/telemetry
-[00:03:40.808] [INFO] base-generator-task-start: Generating Storybook configuration
-[00:03:40.809] [DEBUG] Using cached package.json for C:\Users\Main\Documents\Web Development\NextJs\Mongo\stripe-better-auth-starter\package.json...
-[00:03:40.809] [DEBUG] Using cached package.json for C:\Users\Main\Documents\Web Development\NextJs\Mongo\stripe-better-auth-starter\package.json...
-[00:03:40.809] [DEBUG] Using cached package.json for C:\Users\Main\Documents\Web Development\NextJs\Mongo\stripe-better-auth-starter\package.json...
-[00:03:40.810] [INFO] base-generator-task: - Configuring ESLint plugin
-[00:03:40.812] [DEBUG] Detected flat config at C:\Users\Main\Documents\Web Development\NextJs\Mongo\stripe-better-auth-starter\eslint.config.mjs
-[00:03:40.855] [DEBUG] Using cached version for storybook...
-[00:03:40.855] [DEBUG] Getting CLI versions from NPM for @storybook/nextjs-vite...
-[00:03:40.855] [DEBUG] Executing command: yarn info @storybook/nextjs-vite version --json
-[00:03:40.885] [DEBUG] Getting CLI versions from NPM for @chromatic-com/storybook...
-[00:03:40.885] [DEBUG] Executing command: yarn info @chromatic-com/storybook version --json
-[00:03:40.918] [DEBUG] Getting CLI versions from NPM for @storybook/addon-vitest...
-[00:03:40.918] [DEBUG] Executing command: yarn info @storybook/addon-vitest version --json
-[00:03:40.952] [DEBUG] Getting CLI versions from NPM for @storybook/addon-a11y...
-[00:03:40.952] [DEBUG] Executing command: yarn info @storybook/addon-a11y version --json
-[00:03:40.984] [DEBUG] Getting CLI versions from NPM for @storybook/addon-docs...
-[00:03:40.984] [DEBUG] Executing command: yarn info @storybook/addon-docs version --json
-[00:03:41.024] [DEBUG] Getting CLI versions from NPM for @storybook/addon-onboarding...
-[00:03:41.024] [DEBUG] Executing command: yarn info @storybook/addon-onboarding version --json
-[00:03:41.072] [DEBUG] Getting CLI versions from NPM for vite...
-[00:03:41.072] [DEBUG] Executing command: yarn info vite version --json
-[00:03:41.121] [DEBUG] Getting CLI versions from NPM for eslint-plugin-storybook...
-[00:03:41.121] [DEBUG] Executing command: yarn info eslint-plugin-storybook version --json
-[00:05:20.585] [INFO] base-generator-task: - Configuring main.ts
-[00:05:20.589] [INFO] base-generator-task: - Configuring preview.ts
-[00:05:20.592] [INFO] base-generator-task: - Adding Storybook command to package.json
-[00:05:20.593] [DEBUG] Getting package.json info for C:/Users/Main/Documents/Web Development/NextJs/Mongo/stripe-better-auth-starter/package.json...
-[00:05:20.593] [DEBUG] Using cached package.json for C:\Users\Main\Documents\Web Development\NextJs\Mongo\stripe-better-auth-starter\package.json...
-[00:05:20.595] [INFO] base-generator-task: - Copying framework templates
-[00:05:21.247] [DEBUG] Executing command: yarn config get registry
-[00:05:31.354] [ERROR] [38;2;241;97;97mError: Cannot find @storybook\nextjs-vite\package.json, Error [ERR_MODULE_NOT_FOUND]: Cannot find package '@storybook/nextjs-vite' imported from C:\Users\Main\AppData\Local\Yarn\Data\global\node_modules\storybook\dist\_node-chunks\chunk-YAOMP7IG.js
-    at Object.getPackageJSONURL (node:internal/modules/package_json_reader:316:9)
-    at packageResolve (node:internal/modules/esm/resolve:768:81)
-    at moduleResolve (node:internal/modules/esm/resolve:858:18)
-    at defaultResolve (node:internal/modules/esm/resolve:990:11)
-    at #cachedDefaultResolve (node:internal/modules/esm/loader:757:20)
-    at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:793:38)
-    at ModuleLoader.resolveSync (node:internal/modules/esm/loader:816:52)
-    at Object.resolve (node:internal/modules/esm/initialize_import_meta:36:25)
-    at importMetaResolve (file:///C:/Users/Main/AppData/Local/Yarn/Data/global/node_modules/storybook/dist/_node-chunks/chunk-YAOMP7IG.js:717:48)
-    at resolvePackageDir (file:///C:/Users/Main/AppData/Local/Yarn/Data/global/node_modules/storybook/dist/_node-chunks/chunk-YAOMP7IG.js:721:35)
+[00:08:36.623] [INFO] [36mInitializing Storybook[39m
+[00:08:36.993] [DEBUG] Getting package.json info for C:/Users/Main/Documents/Web Development/NextJs/Mongo/stripe-better-auth-starter/package.json...
+[00:08:36.993] [DEBUG] Getting CLI versions from NPM for storybook...
+[00:08:36.994] [DEBUG] Executing command: yarn info storybook version --json
+[00:08:40.616] [INFO] Adding Storybook version 10.1.9 to your project
+[00:08:40.618] [DEBUG] Project type detected: nextjs
+[00:08:40.619] [DEBUG] Using cached package.json for C:\Users\Main\Documents\Web Development\NextJs\Mongo\stripe-better-auth-starter\package.json...
+[00:08:40.628] [INFO] Framework detected: nextjs-vite
+[00:08:40.629] [DEBUG] Getting installed version for vitest...
+[00:08:40.629] [DEBUG] Executing command: yarn list --pattern "vitest" --json --recursive vitest
+[00:08:42.720] [DEBUG] Installed version for vitest: null
+[00:08:42.720] [DEBUG] Getting installed version for msw...
+[00:08:42.720] [DEBUG] Executing command: yarn list --pattern "msw" --json --recursive msw
+[00:08:44.764] [DEBUG] Installed version for msw: null
+[00:09:20.931] [PROMPT] New to Storybook? {"choice":true}
+[00:09:22.257] [INFO] base-generator-task-start: Generating Storybook configuration
+[00:09:22.257] [DEBUG] Using cached package.json for C:\Users\Main\Documents\Web Development\NextJs\Mongo\stripe-better-auth-starter\package.json...
+[00:09:22.258] [DEBUG] Using cached package.json for C:\Users\Main\Documents\Web Development\NextJs\Mongo\stripe-better-auth-starter\package.json...
+[00:09:22.258] [DEBUG] Using cached package.json for C:\Users\Main\Documents\Web Development\NextJs\Mongo\stripe-better-auth-starter\package.json...
+[00:09:22.259] [INFO] base-generator-task: - Configuring ESLint plugin
+[00:09:22.260] [DEBUG] Detected flat config at C:\Users\Main\Documents\Web Development\NextJs\Mongo\stripe-better-auth-starter\eslint.config.mjs
+[00:09:22.295] [DEBUG] Using cached version for storybook...
+[00:09:22.295] [DEBUG] Getting CLI versions from NPM for @storybook/nextjs-vite...
+[00:09:22.295] [DEBUG] Executing command: yarn info @storybook/nextjs-vite version --json
+[00:09:22.330] [DEBUG] Getting CLI versions from NPM for @chromatic-com/storybook...
+[00:09:22.330] [DEBUG] Executing command: yarn info @chromatic-com/storybook version --json
+[00:09:22.362] [DEBUG] Getting CLI versions from NPM for @storybook/addon-vitest...
+[00:09:22.362] [DEBUG] Executing command: yarn info @storybook/addon-vitest version --json
+[00:09:22.393] [DEBUG] Getting CLI versions from NPM for @storybook/addon-a11y...
+[00:09:22.393] [DEBUG] Executing command: yarn info @storybook/addon-a11y version --json
+[00:09:22.423] [DEBUG] Getting CLI versions from NPM for @storybook/addon-docs...
+[00:09:22.423] [DEBUG] Executing command: yarn info @storybook/addon-docs version --json
+[00:09:22.465] [DEBUG] Getting CLI versions from NPM for @storybook/addon-onboarding...
+[00:09:22.465] [DEBUG] Executing command: yarn info @storybook/addon-onboarding version --json
+[00:09:22.506] [DEBUG] Getting CLI versions from NPM for vite...
+[00:09:22.506] [DEBUG] Executing command: yarn info vite version --json
+[00:09:22.548] [DEBUG] Getting CLI versions from NPM for eslint-plugin-storybook...
+[00:09:22.548] [DEBUG] Executing command: yarn info eslint-plugin-storybook version --json
+[00:09:38.489] [INFO] base-generator-task: - Configuring main.ts
+[00:09:38.494] [INFO] base-generator-task: - Configuring preview.ts
+[00:09:38.498] [INFO] base-generator-task: - Adding Storybook command to package.json
+[00:09:38.499] [DEBUG] Getting package.json info for C:/Users/Main/Documents/Web Development/NextJs/Mongo/stripe-better-auth-starter/package.json...
+[00:09:38.499] [DEBUG] Using cached package.json for C:\Users\Main\Documents\Web Development\NextJs\Mongo\stripe-better-auth-starter\package.json...
+[00:09:38.501] [INFO] base-generator-task: - Copying framework templates
+[00:09:38.611] [DEBUG] Executing command: yarn config get registry
+[00:09:40.733] [INFO] base-generator-task-success: Storybook configuration generated
+[00:09:40.734] [DEBUG] Using cached package.json for C:\Users\Main\Documents\Web Development\NextJs\Mongo\stripe-better-auth-starter\package.json...
+[00:09:40.734] [DEBUG] Using cached installed version for vitest...
+[00:09:40.734] [DEBUG] Getting installed version for @vitest/coverage-v8...
+[00:09:40.734] [DEBUG] Executing command: yarn list --pattern "@vitest/coverage-v8" --json --recursive @vitest/coverage-v8
+[00:09:42.856] [DEBUG] Installed version for @vitest/coverage-v8: null
+[00:09:42.856] [DEBUG] Getting installed version for @vitest/coverage-istanbul...
+[00:09:42.856] [DEBUG] Executing command: yarn list --pattern "@vitest/coverage-istanbul" --json --recursive @vitest/coverage-istanbul
+[00:09:44.926] [DEBUG] Installed version for @vitest/coverage-istanbul: null
+[00:09:44.927] [INFO] adding-dependencies-task-start: Adding dependencies to package.json
+[00:09:44.927] [INFO] adding-dependencies-task: Adding devDependencies:
+- storybook@^10.1.9
+- @storybook/nextjs-vite@^10.1.9
+- @chromatic-com/storybook@^4.1.3
+- @storybook/addon-vitest@^10.1.9
+- @storybook/addon-a11y@^10.1.9
+- @storybook/addon-docs@^10.1.9
+- @storybook/addon-onboarding@^10.1.9
+- vite@^7.3.0
+- eslint-plugin-storybook@^10.1.9
+- vitest
+- playwright
+- @vitest/browser-playwright
+- @vitest/coverage-v8
+[00:09:44.928] [DEBUG] Using cached package.json for C:\Users\Main\Documents\Web Development\NextJs\Mongo\stripe-better-auth-starter\package.json...
+[00:09:44.928] [DEBUG] Using cached version for storybook...
+[00:09:44.928] [DEBUG] Using cached version for @storybook/nextjs-vite...
+[00:09:44.928] [DEBUG] Using cached version for @chromatic-com/storybook...
+[00:09:44.928] [DEBUG] Using cached version for @storybook/addon-vitest...
+[00:09:44.928] [DEBUG] Using cached version for @storybook/addon-a11y...
+[00:09:44.928] [DEBUG] Using cached version for @storybook/addon-docs...
+[00:09:44.928] [DEBUG] Using cached version for @storybook/addon-onboarding...
+[00:09:44.928] [DEBUG] Using cached version for vite...
+[00:09:44.928] [DEBUG] Using cached version for eslint-plugin-storybook...
+[00:09:44.928] [DEBUG] Getting CLI versions from NPM for vitest...
+[00:09:44.928] [DEBUG] Executing command: yarn info vitest version --json
+[00:09:46.903] [DEBUG] Getting CLI versions from NPM for playwright...
+[00:09:46.903] [DEBUG] Executing command: yarn info playwright version --json
+[00:09:54.727] [DEBUG] Getting CLI versions from NPM for @vitest/browser-playwright...
+[00:09:54.727] [DEBUG] Executing command: yarn info @vitest/browser-playwright version --json
+[00:09:55.992] [DEBUG] Getting CLI versions from NPM for @vitest/coverage-v8...
+[00:09:55.992] [DEBUG] Executing command: yarn info @vitest/coverage-v8 version --json
+[00:09:57.264] [INFO] adding-dependencies-task-success: Dependencies added to package.json
+[00:09:57.268] [INFO] Installing dependencies...
+[00:09:57.268] [INFO] install-dependencies-spinner-start: Installing dependencies...
+[00:09:57.269] [DEBUG] Executing command: yarn install --ignore-workspace-root-check
+[00:09:57.873] [INFO] Installing dependencies...: yarn install v1.22.19
 
-Error: Stream timed out after 5000ms of inactivity.
-    at Timeout._onTimeout (file:///C:/Users/Main/AppData/Local/Yarn/Data/global/node_modules/storybook/dist/_node-chunks/chunk-OLRSOKQJ.js:5210:17)
-    at listOnTimeout (node:internal/timers:608:17)
-    at process.processTimers (node:internal/timers:543:7)[39m
-    at getRendererDir (file:///C:/Users/Main/AppData/Local/Yarn/Data/global/node_modules/storybook/dist/_node-chunks/chunk-OLRSOKQJ.js:5409:9)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async templatePath (file:///C:/Users/Main/AppData/Local/Yarn/Data/global/node_modules/storybook/dist/_node-chunks/chunk-OLRSOKQJ.js:5483:19)
-    at async copyTemplateFiles (file:///C:/Users/Main/AppData/Local/Yarn/Data/global/node_modules/storybook/dist/_node-chunks/chunk-OLRSOKQJ.js:5498:17)
-    at async baseGenerator (file:///C:/Users/Main/AppData/Local/Yarn/Data/global/node_modules/create-storybook/dist/_node-chunks/chunk-DXGXNTCQ.js:1277:152)
-    at async GeneratorExecutionCommand.executeProjectGenerator (file:///C:/Users/Main/AppData/Local/Yarn/Data/global/node_modules/create-storybook/dist/_node-chunks/chunk-DXGXNTCQ.js:1345:101)
-    at async GeneratorExecutionCommand.execute (file:///C:/Users/Main/AppData/Local/Yarn/Data/global/node_modules/create-storybook/dist/_node-chunks/chunk-DXGXNTCQ.js:1367:27)
-    at async doInitiate (file:///C:/Users/Main/AppData/Local/Yarn/Data/global/node_modules/create-storybook/dist/_node-chunks/chunk-DXGXNTCQ.js:2279:68)
-    at async file:///C:/Users/Main/AppData/Local/Yarn/Data/global/node_modules/create-storybook/dist/_node-chunks/chunk-DXGXNTCQ.js:2322:20
-    at async withTelemetry (file:///C:/Users/Main/AppData/Local/Yarn/Data/global/node_modules/storybook/dist/_node-chunks/chunk-3Q5I3QYJ.js:209:12)
+[00:09:57.873] [INFO] install-dependencies-spinner: Installing dependencies...: yarn install v1.22.19
+[00:09:58.041] [INFO] Installing dependencies...: [1/4] Resolving packages...
+
+[00:09:58.041] [INFO] install-dependencies-spinner: Installing dependencies...: [1/4] Resolving packages.
+[00:11:00.978] [INFO] Installing dependencies...: [2/4] Fetching packages...
+
+[00:11:00.978] [INFO] install-dependencies-spinner: Installing dependencies...: [2/4] Fetching packages..
+[00:11:34.113] [INFO] Installing dependencies...: [3/4] Linking dependencies...
+
+[00:11:34.113] [INFO] install-dependencies-spinner: Installing dependencies...: [3/4] Linking dependencie
+[00:12:21.358] [INFO] Installing dependencies...: [4/4] Building fresh packages...
+
+[00:12:21.358] [INFO] install-dependencies-spinner: Installing dependencies...: [4/4] Building fresh pack
+[00:12:24.262] [INFO] Installing dependencies...: success Saved lockfile.
+
+[00:12:24.263] [INFO] install-dependencies-spinner: Installing dependencies...: success Saved lockfile.
+[00:12:24.272] [INFO] Installing dependencies...: Done in 146.44s.
+
+[00:12:24.272] [INFO] install-dependencies-spinner: Installing dependencies...: Done in 146.44s.
+[00:12:24.383] [INFO] Dependencies installed
+[00:12:24.383] [INFO] install-dependencies-spinner-stop: Dependencies installed
+[00:12:24.426] [INFO] configure-addons-task-start: Configuring addons...
+[00:12:24.426] [INFO] configure-addons-task: Configuring @chromatic-com/storybook...
+[00:12:24.473] [INFO] configure-addons-task: @chromatic-com/storybook configured
+
+[00:12:24.473] [INFO] configure-addons-task: Configuring @storybook/addon-vitest...
+[00:12:35.085] [DEBUG] Vitest version specifier: null
+[00:12:38.034] [INFO] Creating a Vitest setup file for Storybook:
+[00:12:38.034] [INFO] C:/Users/Main/Documents/Web Development/NextJs/Mongo/stripe-better-auth-starter/.storybook/vitest.setup.ts
+
+[00:12:38.082] [INFO] Creating a Vitest config file:
+[00:12:38.082] [INFO] C:/Users/Main/Documents/Web Development/NextJs/Mongo/stripe-better-auth-starter/vitest.config.ts
+[00:12:38.431] [INFO] Setting up a11y addon for @storybook/addon-vitest
+[00:12:38.431] [INFO] Setting up a11y addon for @storybook/addon-vitest
+[00:12:39.716] [ERROR] Failed to setup a11y addon for @storybook/addon-vitest {"error":"Error: Command failed with exit code 1: yarn.cmd exec storybook -- automigrate addon-a11y-addon-test --loglevel silent --yes --skip-doctor --package-manager yarn1 --skip-install\n    at makeError (file:///C:/Users/Main/Documents/Web%20Development/NextJs/Mongo/stripe-better-auth-starter/node_modules/storybook/dist/_node-chunks/chunk-6XH4P37X.js:12912:95)\n    at file:///C:/Users/Main/Documents/Web%20Development/NextJs/Mongo/stripe-better-auth-starter/node_modules/storybook/dist/_node-chunks/chunk-6XH4P37X.js:13486:27\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async Object.executeTask (file:///C:/Users/Main/AppData/Local/Yarn/Data/global/node_modules/storybook/dist/_node-chunks/chunk-SCU5NENN.js:3668:11)\n    at async postInstall (file:///C:/Users/Main/Documents/Web%20Development/NextJs/Mongo/stripe-better-auth-starter/node_modules/@storybook/addon-vitest/dist/postinstall.js:1207:234)\n    at async postinstallAddon (file:///C:/Users/Main/AppData/Local/Yarn/Data/global/node_modules/create-storybook/dist/_node-chunks/postinstallAddon-R4J56TQ2.js:196:5)\n    at async AddonConfigurationCommand.configureAddons (file:///C:/Users/Main/AppData/Local/Yarn/Data/global/node_modules/create-storybook/dist/_node-chunks/chunk-DXGXNTCQ.js:1448:50)\n    at async AddonConfigurationCommand.execute (file:///C:/Users/Main/AppData/Local/Yarn/Data/global/node_modules/create-storybook/dist/_node-chunks/chunk-DXGXNTCQ.js:1411:43)\n    at async doInitiate (file:///C:/Users/Main/AppData/Local/Yarn/Data/global/node_modules/create-storybook/dist/_node-chunks/chunk-DXGXNTCQ.js:2293:38)\n    at async file:///C:/Users/Main/AppData/Local/Yarn/Data/global/node_modules/create-storybook/dist/_node-chunks/chunk-DXGXNTCQ.js:2322:20"}
+[00:12:39.716] [INFO] [31mCommand failed with exit code 1: yarn.cmd exec storybook -- automigrate addon-a11y-addon-test --loglevel silent --yes --skip-doctor --package-manager yarn1 --skip-install[39m
+[00:12:39.718] [ERROR] Could not automatically set up @storybook/addon-a11y for @storybook/addon-vitest.
+Please refer to the documentation to complete the setup manually:
+https://storybook.js.org/docs/writing-tests/accessibility-testing#test-addon-integration
+[00:12:39.719] [WARN] Done, but with errors!
+@storybook/addon-vitest was installed successfully, but there were some errors during the setup process. Please refer to the documentation to complete the setup manually and check the errors above:
+https://storybook.js.org/docs/next/writing-tests/integrations/vitest-addon#manual-setup
+[00:12:39.720] [INFO] configure-addons-task: Configuring @storybook/addon-a11y...
+[00:12:40.377] [INFO] configure-addons-task: Configuring @storybook/addon-docs...
+[00:12:40.414] [INFO] configure-addons-task: @storybook/addon-docs configured
+
+[00:12:40.415] [INFO] configure-addons-task: Configuring @storybook/addon-onboarding...
+[00:12:40.454] [INFO] configure-addons-task: @storybook/addon-onboarding configured
+
+[00:12:40.456] [ERROR] configure-addons-task-error: Failed to configure addons
+[00:12:40.458] [INFO] [2m✅ @chromatic-com/storybook[22m
+[00:12:40.459] [INFO] [2m❌ @storybook/addon-vitest[22m
+[00:12:40.459] [INFO] [2m❌ @storybook/addon-a11y[22m
+[00:12:40.459] [INFO] [2m✅ @storybook/addon-docs[22m
+[00:12:40.459] [INFO] [2m✅ @storybook/addon-onboarding[22m
+[00:12:40.460] [INFO] Playwright browser binaries are necessary for @storybook/addon-vitest. The download can take some time. If you don't want to wait, you can skip the installation and run the following command manually later:
+[36myarn exec playwright -- install chromium --with-deps[39m
+[00:13:02.777] [PROMPT] Do you want to install Playwright with Chromium now? {"choice":true}
+[00:13:02.777] [INFO] Installing Playwright browser binaries (press "c" to abort)
+[00:13:02.777] [INFO] playwright-installation-spinner-start: Installing Playwright browser binaries (press "c" to abort)
+[00:13:02.778] [DEBUG] Executing command: yarn exec playwright -- install chromium --with-deps
+[00:13:03.229] [INFO] Installing Playwright browser binaries (press "c" to abort): yarn exec v1.22.19
+
+[00:13:03.229] [INFO] playwright-installation-spinner: Installing Playwright browser binaries (press "c" to abort): yarn exec v1.22.19
+[00:13:03.302] [INFO] Installing Playwright browser binaries (press "c" to abort): info Visit https://yarnpkg.com/en/docs/cli/exec for documentation about this command.
+
+[00:13:03.302] [INFO] playwright-installation-spinner: Installing Playwright browser binaries (press "c" to abort): info Visit https://yarnpk
+[00:13:03.337] [ERROR] An error occurred while installing Playwright browser binaries. Please run the following command later: yarn exec playwright -- install chromium --with-deps {"error":"Error: Command failed with exit code 1: yarn.cmd exec playwright -- install chromium --with-deps\nerror Couldn't find the binary playwright\nyarn exec v1.22.19\ninfo Visit https://yarnpkg.com/en/docs/cli/exec for documentation about this command.\n    at makeError (file:///C:/Users/Main/AppData/Local/Yarn/Data/global/node_modules/storybook/dist/_node-chunks/chunk-6XH4P37X.js:12912:95)\n    at file:///C:/Users/Main/AppData/Local/Yarn/Data/global/node_modules/storybook/dist/_node-chunks/chunk-6XH4P37X.js:13486:27\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async Object.executeTaskWithSpinner (file:///C:/Users/Main/AppData/Local/Yarn/Data/global/node_modules/storybook/dist/_node-chunks/chunk-SCU5NENN.js:3701:11)\n    at async AddonVitestService.installPlaywright (file:///C:/Users/Main/AppData/Local/Yarn/Data/global/node_modules/storybook/dist/_node-chunks/chunk-OLRSOKQJ.js:5882:17)\n    at async AddonConfigurationCommand.execute (file:///C:/Users/Main/AppData/Local/Yarn/Data/global/node_modules/create-storybook/dist/_node-chunks/chunk-DXGXNTCQ.js:1413:26)\n    at async doInitiate (file:///C:/Users/Main/AppData/Local/Yarn/Data/global/node_modules/create-storybook/dist/_node-chunks/chunk-DXGXNTCQ.js:2293:38)\n    at async file:///C:/Users/Main/AppData/Local/Yarn/Data/global/node_modules/create-storybook/dist/_node-chunks/chunk-DXGXNTCQ.js:2322:20\n    at async withTelemetry (file:///C:/Users/Main/AppData/Local/Yarn/Data/global/node_modules/storybook/dist/_node-chunks/chunk-3Q5I3QYJ.js:209:12)\n    at async initiate (file:///C:/Users/Main/AppData/Local/Yarn/Data/global/node_modules/create-storybook/dist/_node-chunks/chunk-DXGXNTCQ.js:2315:24)"}
+[00:13:03.337] [ERROR] playwright-installation-spinner-error: [31mAn error occurred while installing Playwright browser binaries. Please run the following command later: yarn exec playwright -- install chromium --with-deps[39m
+[00:13:04.740] [WARN] Storybook setup completed, but some non-blocking errors occurred. Please check the log file below for details.
+[00:13:04.741] [INFO] To run Storybook manually, run [36myarn storybook[39m. CTRL+C to stop.
+[00:13:04.742] [INFO] Wanna know more about Storybook? Check out [36mhttps://storybook.js.org/[39m
+Having trouble or want to chat? Join us at [36mhttps://discord.gg/storybook/[39m
