@@ -1,9 +1,7 @@
-import SignInCardAction from "@/components/ui/actions/forms/LoginForm.action";
+import { auth } from "@/lib/auth";
 
 export default function Home() {
-  return (
-    <main>
-      <SignInCardAction />
-    </main>
-  );
+  const session = auth.api.getAccessToken();
+
+  return <main>Home Page</main>;
 }

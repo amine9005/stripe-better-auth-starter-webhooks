@@ -7,11 +7,12 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/atoms/card/card";
-import LoginFormContent from "./LoginFormContent.organism";
-import { SignInFormType, SignInSchemaType } from "@/validations/user.zod";
-import { memo } from "react";
-import { Button } from "@/components/ui/atoms/button/button";
+
+import { SignUpFormType, SignUpSchemaType } from "@/validations/user.zod";
+import { FormEvent, memo } from "react";
 import { H2 } from "@/components/ui/atoms/heading/heading2";
+import LoadingSubmitButton from "@/components/ui/molecules/loading-submit-button/loadingSubmitButton.molecule";
+import SignUpContentOrganism from "./SignUpContent.organism";
 
 interface Card {
   title?: React.ReactNode;
@@ -19,14 +20,20 @@ interface Card {
 }
 
 interface Props {
-  form: SignInFormType;
+  form: SignUpFormType;
   card: Card;
   formName: string;
-  handle_submit: (formData: SignInSchemaType) => void;
-  handle_reset: () => void;
+  loading: boolean;
+  handle_submit: (formData: FormEvent) => void;
 }
 
-const LoginFormCard = ({ form, card, formName, handle_submit }: Props) => {
+const LoginFormCard = ({
+  form,
+  card,
+  formName,
+  handle_submit,
+  loading,
+}: Props) => {
   return (
     <Card className="w-full sm:max-w-md">
       <CardHeader>
@@ -36,16 +43,16 @@ const LoginFormCard = ({ form, card, formName, handle_submit }: Props) => {
         <CardDescription>{card.description}</CardDescription>
       </CardHeader>
       <CardContent>
-        <LoginFormContent
+        <SignUpContentOrganism
           form={form}
           formName={formName}
           handle_submit={handle_submit}
         />
       </CardContent>
       <CardFooter className="flex justify-center items-center">
-        <Button type="submit" form={`form-${formName}`} width={"md"}>
-          Login{" "}
-        </Button>
+        <LoadingSubmitButton loading={loading} formName={formName}>
+          Sign In
+        </LoadingSubmitButton>
       </CardFooter>
     </Card>
   );

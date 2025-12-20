@@ -1,4 +1,7 @@
-import { Meta, StoryObj } from "@storybook/nextjs-vite";
+import {
+  Meta,
+  // StoryObj
+} from "@storybook/nextjs-vite";
 import { BugReportFormCard } from "./BugReportCard.organism";
 
 const meta = {
@@ -6,7 +9,7 @@ const meta = {
 } satisfies Meta<typeof BugReportFormCard>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
+// type Story = StoryObj<typeof meta>;
 
 // const ButtonWithHooks = () => {
 

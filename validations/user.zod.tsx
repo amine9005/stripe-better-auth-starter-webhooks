@@ -8,7 +8,7 @@ export const passwordValidation = z
   .regex(/^(?=.*[A-Z]).{8,}$/, {
     message: "Should Contain at least one Uppercase letter.",
   })
-  .regex(/[!@#$%^&*(),.?":{}|<>]/, {
+  .regex(/[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/, {
     message: "Password should contain at least one special character.",
   })
   .regex(/[0-9]/, { message: "Password should have at least one number." });
@@ -17,17 +17,25 @@ export const usernameValidation = z
   .string()
   .min(3, { message: "Username must be at least 3 char longs" })
   .max(31, { message: "Username cannot exceed 20 characters" })
-  .regex(
-    /^[a-z0-9]{6,20}$/,
-    "Username must not contain special characters or uppercase letters",
-  );
+  .regex(/^[a-z0-9A-Z ]+$/, "Username must not contain special characters");
 export const emailValidation = z.email({ message: "Invalid Email Address" });
 
-export const signUpSchema = z.object({
-  username: usernameValidation,
-  email: emailValidation,
-  password: passwordValidation,
-});
+export const signUpSchema = z
+  .object({
+    username: usernameValidation,
+    email: emailValidation,
+    password: passwordValidation,
+    confirmPassword: passwordValidation,
+  })
+  .superRefine(({ password, confirmPassword }, ctx) => {
+    if (confirmPassword !== password) {
+      ctx.addIssue({
+        code: "custom",
+        message: "Passwords do not match",
+        path: ["confirmPassword"],
+      });
+    }
+  });
 
 export const signInSchema = z.object({
   email: emailValidation,

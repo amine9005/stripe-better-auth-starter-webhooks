@@ -1,10 +1,7 @@
 import { Meta, StoryObj } from "@storybook/nextjs-vite";
 import SearchBar1 from "./searchBar1.molecule";
 
-import {
-  buttonKnobs,
-  Search,
-} from "@/components/ui/atoms/button/button.stories";
+import { Search } from "@/components/ui/atoms/button/button.stories";
 import { SearchInput } from "@/components/ui/atoms/input/input.stories";
 import { Button } from "@/components/ui/atoms/button/button";
 import { Input } from "@/components/ui/atoms/input/input";

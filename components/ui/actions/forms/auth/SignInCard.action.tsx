@@ -1,31 +1,31 @@
 "use client";
-import FormLayout from "../../layouts/Form.layout";
 import { SignInSchemaType } from "@/validations/user.zod";
-import { memo } from "react";
+import { memo, useState } from "react";
 import { useSignIn } from "@/hooks/useSignIn.hook";
-import LoginFormCard from "../../organisms/login/LoginFormCard.organism";
+import FormLayout from "@/components/ui/layouts/Form.layout";
+import SignInFormCard from "@/components/ui/organisms/login/SignInCard.organism";
 
 const SignInCardAction = () => {
   const form = useSignIn();
+  const [loading, setLoading] = useState(false);
+
   const card = { title: "Welcome back, Login", description: "" };
 
   const handle_submit = (formData: SignInSchemaType) => {
+    setLoading(true);
     console.log(JSON.stringify(formData));
-  };
-
-  const handle_reset = () => {
-    form.reset();
+    setLoading(false);
   };
 
   return (
     <FormLayout>
       {" "}
-      <LoginFormCard
+      <SignInFormCard
+        loading={loading}
         form={form}
         card={card}
         formName="sign-in"
         handle_submit={handle_submit}
-        handle_reset={handle_reset}
       />
     </FormLayout>
   );
