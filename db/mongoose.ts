@@ -9,10 +9,12 @@ declare global {
     | undefined;
 }
 
-const MONGO_URI = process.env.MONGODB_URI;
+const MONGO_URI = process.env.DATABASE_URL;
 
 if (!MONGO_URI) {
-  throw new Error("DATABASE_URL is not defined in environment variables.");
+  throw new Error(
+    "DATABASE_URL is not defined in environment variables! Please ensure you have a DATABASE_URL environment variable set up in your environment variables.",
+  );
 }
 
 const DB_URI: string = MONGO_URI;

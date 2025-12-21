@@ -2,12 +2,12 @@
 import { FieldGroup } from "@/components/ui/atoms/field/field";
 import InputField from "../../molecules/input-field/InputField.molecule";
 import { Controller } from "react-hook-form";
-import { SignInFormType, SignInSchemaType } from "@/validations/user.zod";
-import { memo } from "react";
+import { SignInFormType } from "@/validations/user.zod";
+import { FormEvent, memo } from "react";
 
 interface Props {
   form: SignInFormType;
-  handle_submit: (data: SignInSchemaType) => void;
+  handle_submit: (formEvent: FormEvent) => void;
   formName: string;
 }
 // email input values are defined similarly to the password input values. The `Controller` component is used to manage the form state, and it passes the form data to the `handle_submit` function when the form is submitted. The `FieldGroup` component is used to group the input fields together. The `emailInputValues` and `passwordInputValues` objects define the properties of each input field, such as name, label title and type. The `memo` function is used to optimize the component by preventing unnecessary re-renders when the form state changes.
@@ -32,7 +32,7 @@ const passwordInputValues = {
 // LoginFormContent component is a functional component that takes in the form, formName and handle_submit props. It returns a form element with two input fields: email and password. The `Controller` component is used to manage the form state, and it passes the form data to the `handle_submit` function when the form is submitted. The `FieldGroup` component is used to group the input fields together. The `emailInputValues` and `passwordInputValues` objects define the properties of each input field, such as name, label title and type. The `memo` function is used to optimize the component by preventing unnecessary re-renders when the form state changes.
 const LoginFormContent = ({ form, formName, handle_submit }: Props) => {
   return (
-    <form id={`form-${formName}`} onSubmit={form?.handleSubmit(handle_submit)}>
+    <form id={`form-${formName}`} onSubmit={handle_submit}>
       <FieldGroup>
         <Controller
           name="email"

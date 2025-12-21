@@ -8,11 +8,12 @@ import {
   CardTitle,
 } from "@/components/ui/atoms/card/card";
 
-import { SignUpFormType, SignUpSchemaType } from "@/validations/user.zod";
+import { SignUpFormType } from "@/validations/user.zod";
 import { FormEvent, memo } from "react";
 import { H2 } from "@/components/ui/atoms/heading/heading2";
 import LoadingSubmitButton from "@/components/ui/molecules/loading-submit-button/loadingSubmitButton.molecule";
 import SignUpContentOrganism from "./SignUpContent.organism";
+import ButtonLink from "../../molecules/Button-Link/Button-Link.molecule";
 
 interface Card {
   title?: React.ReactNode;
@@ -24,7 +25,7 @@ interface Props {
   card: Card;
   formName: string;
   loading: boolean;
-  handle_submit: (formData: FormEvent) => void;
+  handle_submit: (formEvent: FormEvent) => void;
 }
 
 const LoginFormCard = ({
@@ -49,10 +50,16 @@ const LoginFormCard = ({
           handle_submit={handle_submit}
         />
       </CardContent>
-      <CardFooter className="flex justify-center items-center">
-        <LoadingSubmitButton loading={loading} formName={formName}>
-          Sign In
-        </LoadingSubmitButton>
+      <CardFooter className="flex flex-col space-y-4">
+        <div>
+          have an account?
+          <ButtonLink href="/sign-in">Sign In</ButtonLink>
+        </div>
+        <div className="flex justify-center items-center">
+          <LoadingSubmitButton loading={loading} formName={formName}>
+            Sign Up
+          </LoadingSubmitButton>
+        </div>
       </CardFooter>
     </Card>
   );

@@ -1,33 +1,15 @@
 "use client";
-import { SignUpSchemaType } from "@/validations/user.zod";
-import { FormEvent, memo, useState } from "react";
-import { useSignUp } from "@/hooks/useSignIn.hook";
+import { memo } from "react";
+import { useSignUp } from "@/hooks/useAuthForms.hook";
 import FormLayout from "@/components/ui/layouts/Form.layout";
 import SignUpFormCard from "@/components/ui/organisms/signup/SignUpCard.organism";
-import { signUpAction } from "@/app/api/actions/auth/main";
+import { useSignUpSubmit } from "@/hooks/useAuthSubmit.hook";
 
 const SignInCardAction = () => {
   const form = useSignUp();
-  const [loading, setLoading] = useState(false);
+  const { handle_submit, loading } = useSignUpSubmit();
 
   const card = { title: "Welcome, Sign Up", description: "" };
-
-  const handle_submit = async (e: FormEvent) => {
-    e.preventDefault();
-    form.trigger();
-    form.watch(() => {
-      form.trigger();
-    });
-    if (form.formState.isValid) {
-      console.log("here here");
-
-      setLoading(true);
-      const resp = await signUpAction(form.getValues());
-      console.log(resp);
-    }
-
-    setLoading(false);
-  };
 
   return (
     <FormLayout>
@@ -37,7 +19,7 @@ const SignInCardAction = () => {
         form={form}
         card={card}
         formName="sign-in"
-        handle_submit={handle_submit}
+        handle_submit={(e) => handle_submit(e, form)}
       />
     </FormLayout>
   );
