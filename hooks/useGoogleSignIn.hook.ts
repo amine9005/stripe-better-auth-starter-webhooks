@@ -1,4 +1,4 @@
-import { signInWithGoogle } from "@/app/api/actions/auth/auth.controller";
+import { signInWithGoogleClient } from "@/lib/auth-client";
 import { useState } from "react";
 
 export function useGoogleSignInHook() {
@@ -8,7 +8,7 @@ export function useGoogleSignInHook() {
     setLoading(true);
 
     try {
-      await signInWithGoogle();
+      await signInWithGoogleClient();
     } catch (error) {
       console.log("error ", error);
     }

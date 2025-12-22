@@ -15,8 +15,7 @@ import LoadingSubmitButton from "@/components/ui/molecules/loading-submit-button
 import ButtonLink from "../../molecules/Button-Link/Button-Link.molecule";
 import { Button } from "../../atoms/button/button";
 import { useGoogleSignInHook } from "@/hooks/useGoogleSignIn.hook";
-import { signInWithGoogleClient } from "@/lib/auth-client";
-
+import Link from "next/link";
 interface Card {
   title?: React.ReactNode;
   description?: React.ReactNode;
@@ -55,6 +54,7 @@ const SignInFormCard = ({
         />
       </CardContent>
       <CardFooter className="flex flex-col space-y-4">
+        <Link href={"/reset-password"}>Reset Password</Link>
         <div>
           Don&apos;t have an account?
           <ButtonLink href="/sign-up">Sign Up</ButtonLink>
@@ -68,6 +68,7 @@ const SignInFormCard = ({
         <Button
           disabled={loading}
           width={"full"}
+          variant={"secondary"}
           type="button"
           onClick={signInWithGoogleFunc}
         >

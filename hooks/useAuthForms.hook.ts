@@ -2,6 +2,8 @@ import { useForm } from "react-hook-form";
 import {
   SignInSchemaType,
   SignUpSchemaType,
+  emailSchema,
+  EmailSchemaType,
   signInSchema,
   signUpSchema,
 } from "@/validations/user.zod";
@@ -27,6 +29,17 @@ export const useSignUp = () => {
       email: "",
       password: "",
       confirmPassword: "",
+    },
+  });
+
+  return form;
+};
+
+export const useResetPasswordForm = () => {
+  const form = useForm<EmailSchemaType>({
+    resolver: zodResolver(emailSchema),
+    defaultValues: {
+      email: "",
     },
   });
 

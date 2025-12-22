@@ -42,6 +42,13 @@ export const signInSchema = z.object({
   password: passwordValidation,
 });
 
+export const emailSchema = z.object({
+  email: emailValidation,
+});
+
+export type EmailSchemaType = z.infer<typeof emailSchema>;
+export type EmailFormType = UseFormReturn<EmailSchemaType>;
+
 export type SignInSchemaType = z.infer<typeof signInSchema>;
 
 export type SignInFormType = UseFormReturn<SignInSchemaType>;

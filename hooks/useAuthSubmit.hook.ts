@@ -1,11 +1,18 @@
 import {
+  requestResetPasswordAction,
   signInAction,
   signUpAction,
 } from "@/app/api/actions/auth/auth.controller";
 import { checkAndWatchForm } from "@/helpers/formsHelpers";
-import { SignInFormType, SignUpFormType } from "@/validations/user.zod";
+import {
+  EmailFormType,
+  SignInFormType,
+  SignUpFormType,
+} from "@/validations/user.zod";
 import { FormEvent, useCallback, useState } from "react";
 
+// TODO handle non verified email address login
+// TODO add internet connection error message
 export function useSignInSubmit() {
   const [loading, setLoading] = useState(false);
 
@@ -37,6 +44,7 @@ export function useSignInSubmit() {
   return { handle_submit, loading };
 }
 
+// TODO add internet connection error message
 export function useSignUpSubmit() {
   const [loading, setLoading] = useState(false);
 
@@ -45,8 +53,15 @@ export function useSignUpSubmit() {
       checkAndWatchForm(e, form);
       if (form.formState.isValid) {
         setLoading(true);
-        const resp = await signUpAction(form.getValues());
-        console.log(resp);
+        try {
+          await signUpAction(form.getValues());
+        } catch (error) {
+          form.setError("email", {
+            type: "custom",
+            message: "Email Already Exists",
+          });
+          console.log("error ", error);
+        }
       }
 
       setLoading(false);
@@ -57,4 +72,38 @@ export function useSignUpSubmit() {
   return { handle_submit, loading };
 }
 
-export function useGoogleSignIn() {}
+export function useResetPasswordSubmit() {
+  const [loading, setLoading] = useState(false);
+
+  const handle_submit = useCallback(
+    async (e: FormEvent, form: EmailFormType) => {
+      checkAndWatchForm(e, form);
+      if (form.formState.isValid) {
+        setLoading(true);
+
+        try {
+          const email = form.getValues().email as string;
+
+          await requestResetPasswordAction(email);
+          // if (!resp) {
+          //   form.setError("email", {
+          //     type: "custom",
+          //     message: "Email Does NOT Exists",
+          //   });
+          // }
+        } catch (error) {
+          form.setError("email", {
+            type: "custom",
+            message: "Email Does NOT Exists",
+          });
+          console.log("error ", error);
+        }
+      }
+
+      setLoading(false);
+    },
+
+    [],
+  );
+  return { handle_submit, loading };
+}

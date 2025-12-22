@@ -15,7 +15,8 @@ export async function signUpAction(formData: SignUpSchemaType) {
       password,
     },
   });
-  redirect("/");
+
+  redirect("/verify-email");
 }
 
 export async function signInAction(formData: SignInSchemaType) {
@@ -34,11 +35,11 @@ export async function signOutAction() {
   redirect("/");
 }
 
-export async function signInWithGoogle() {
-  await auth.api.signInSocial({
+export async function requestResetPasswordAction(email: string) {
+  return await auth.api.requestPasswordReset({
     body: {
-      provider: "google", // or any other provider id
-      callbackURL: "/",
+      email: email, // required
+      redirectTo: `${process.env.BETTER_AUTH_URL}/reset-password`,
     },
   });
 }

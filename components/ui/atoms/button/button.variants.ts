@@ -19,6 +19,8 @@ export const widthOptions = {
   md: "w-30",
 };
 
+export type WidthOptions = keyof typeof widthOptions;
+
 export const sizeOptions = {
   default: "h-9 px-4 py-2 has-[>svg]:px-3",
   sm: "h-8 rounded-md gap-1.5 px-3 has-[>svg]:px-2.5",
