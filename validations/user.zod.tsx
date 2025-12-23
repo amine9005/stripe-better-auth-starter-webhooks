@@ -46,7 +46,27 @@ export const emailSchema = z.object({
   email: emailValidation,
 });
 
+export const passwordSchema = z
+  .object({
+    password: passwordValidation,
+    confirmPassword: passwordValidation,
+  })
+  .superRefine(({ password, confirmPassword }, ctx) => {
+    if (confirmPassword !== password) {
+      ctx.addIssue({
+        code: "custom",
+        message: "Passwords do not match",
+        path: ["confirmPassword", "password"],
+      });
+    }
+  });
+
+export type PasswordSchemaType = z.infer<typeof passwordSchema>;
+
+export type PasswordFormType = UseFormReturn<PasswordSchemaType>;
+
 export type EmailSchemaType = z.infer<typeof emailSchema>;
+
 export type EmailFormType = UseFormReturn<EmailSchemaType>;
 
 export type SignInSchemaType = z.infer<typeof signInSchema>;

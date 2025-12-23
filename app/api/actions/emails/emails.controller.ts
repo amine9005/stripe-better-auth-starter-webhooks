@@ -10,7 +10,7 @@ export async function sendVerificationEmailAction(email: string, url: string) {
     const { data, error } = await resend.emails.send({
       from: FROM,
       // TODO add email address
-      to: "delivered@resend.dev",
+      to: process.env.MY_EMAIL_ADDRESS!,
       subject: "Verify your email address",
       react: EmailVerification({ url: url }),
     });

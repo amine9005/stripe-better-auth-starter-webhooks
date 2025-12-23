@@ -10,7 +10,6 @@ interface Props {
   handle_submit: (formEvent: FormEvent) => void;
   formName: string;
 }
-// email input values are defined similarly to the password input values. The `Controller` component is used to manage the form state, and it passes the form data to the `handle_submit` function when the form is submitted. The `FieldGroup` component is used to group the input fields together. The `emailInputValues` and `passwordInputValues` objects define the properties of each input field, such as name, label title and type. The `memo` function is used to optimize the component by preventing unnecessary re-renders when the form state changes.
 
 const emailInputValues = {
   name: "email",
@@ -20,7 +19,6 @@ const emailInputValues = {
   autoComplete: "off",
 };
 
-// password input values are defined similarly to the email input values. The `Controller` component is used to manage the form state, and it passes the form data to the `handle_submit` function when the form is submitted. The `FieldGroup` component is used to group the input fields together. The `emailInputValues` and `passwordInputValues` objects define the properties of each input field, such as name, label title and type. The `memo` function is used to optimize the component by preventing unnecessary re-renders when the form state changes.
 const passwordInputValues = {
   name: "password",
   labelTitle: "Password",
@@ -29,7 +27,6 @@ const passwordInputValues = {
   autoComplete: "off",
 };
 
-// LoginFormContent component is a functional component that takes in the form, formName and handle_submit props. It returns a form element with two input fields: email and password. The `Controller` component is used to manage the form state, and it passes the form data to the `handle_submit` function when the form is submitted. The `FieldGroup` component is used to group the input fields together. The `emailInputValues` and `passwordInputValues` objects define the properties of each input field, such as name, label title and type. The `memo` function is used to optimize the component by preventing unnecessary re-renders when the form state changes.
 const LoginFormContent = ({ form, formName, handle_submit }: Props) => {
   return (
     <form id={`form-${formName}`} onSubmit={handle_submit}>

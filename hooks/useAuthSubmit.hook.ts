@@ -1,11 +1,13 @@
 import {
   requestResetPasswordAction,
+  resetPasswordAction,
   signInAction,
   signUpAction,
 } from "@/app/api/actions/auth/auth.controller";
 import { checkAndWatchForm } from "@/helpers/formsHelpers";
 import {
   EmailFormType,
+  PasswordFormType,
   SignInFormType,
   SignUpFormType,
 } from "@/validations/user.zod";
@@ -72,8 +74,9 @@ export function useSignUpSubmit() {
   return { handle_submit, loading };
 }
 
-export function useResetPasswordSubmit() {
+export function useRequestResetPasswordSubmit() {
   const [loading, setLoading] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handle_submit = useCallback(
     async (e: FormEvent, form: EmailFormType) => {
@@ -85,17 +88,37 @@ export function useResetPasswordSubmit() {
           const email = form.getValues().email as string;
 
           await requestResetPasswordAction(email);
-          // if (!resp) {
-          //   form.setError("email", {
-          //     type: "custom",
-          //     message: "Email Does NOT Exists",
-          //   });
-          // }
+          setIsSubmitted(true);
         } catch (error) {
           form.setError("email", {
             type: "custom",
             message: "Email Does NOT Exists",
           });
+          console.log("error ", error);
+        }
+      }
+
+      setLoading(false);
+    },
+    [],
+  );
+  return { handle_submit, loading, isSubmitted };
+}
+
+export function useResetPasswordSubmit() {
+  const [loading, setLoading] = useState(false);
+
+  const handle_submit = useCallback(
+    async (e: FormEvent, form: PasswordFormType) => {
+      checkAndWatchForm(e, form);
+      if (form.formState.isValid) {
+        setLoading(true);
+
+        try {
+          const password = form.getValues().password as string;
+
+          await resetPasswordAction(password);
+        } catch (error) {
           console.log("error ", error);
         }
       }

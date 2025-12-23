@@ -1,5 +1,6 @@
 "use client";
 import { FieldGroup } from "@/components/ui/atoms/field/field";
+import { useRequestResetPasswordForm } from "@/hooks/useAuthForms.hook";
 import { Controller } from "react-hook-form";
 import InputField from "@/components/ui/molecules/input-field/InputField.molecule";
 import {
@@ -11,31 +12,37 @@ import {
 } from "@/components/ui/atoms/card/card";
 import { H2 } from "@/components/ui/atoms/heading/heading2";
 import LoadingSubmitButton from "@/components/ui/molecules/loading-submit-button/loadingSubmitButton.molecule";
-import { useResetPasswordSubmit } from "@/hooks/useAuthSubmit.hook";
-import { useResetPasswordForm } from "@/hooks/useAuthForms.hook";
+import { useRequestResetPasswordSubmit } from "@/hooks/useAuthSubmit.hook";
+
+import EmailSent from "@/components/ui/organisms/email-sent/EmailSent";
 import { memo } from "react";
 
-const ResetPasswordAction = () => {
-  const form = useResetPasswordForm();
-  const { handle_submit, loading } = useResetPasswordSubmit();
+const RequestResetPasswordAction = () => {
+  const form = useRequestResetPasswordForm();
+  const { handle_submit, loading, isSubmitted } =
+    useRequestResetPasswordSubmit();
 
   const formName = "reset-password";
 
-  const passwordInputValues = {
-    name: "password",
-    labelTitle: "New Password",
-    type: "password",
-    placeholder: "Your New Password ",
-    autoComplete: "off",
+  const emailInputValues = {
+    name: "email",
+    labelTitle: "Email",
+    type: "email",
+    placeholder: "Your Email Address ",
+    autoComplete: "on",
   };
 
-  const confirmPasswordInputValues = {
-    name: "confirmPassword",
-    labelTitle: "Confirm Password",
-    type: "password",
-    placeholder: "Confirm Your New Password ",
-    autoComplete: "off",
+  const emailSentValues = {
+    cardTitle: "Check your email",
+    cardDescription: "We've sent a password reset link to your email.",
+    alertDescription: "If you don't see the email, check your spam folder.",
+    redirectText: "Back to sign in",
+    redirectLink: "/sign-in",
   };
+
+  if (isSubmitted) {
+    return <EmailSent props={emailSentValues} />;
+  }
   return (
     <div className="flex justify-center items-center p-4 h-dvh">
       <Card className="w-full sm:max-w-md">
@@ -51,24 +58,13 @@ const ResetPasswordAction = () => {
           >
             <FieldGroup>
               <Controller
-                name="password"
+                name="email"
                 control={form?.control}
                 render={({ field, fieldState }) => (
                   <InputField
                     field={field}
                     fieldState={fieldState}
-                    item={passwordInputValues}
-                  />
-                )}
-              />{" "}
-              <Controller
-                name="confirmPassword"
-                control={form?.control}
-                render={({ field, fieldState }) => (
-                  <InputField
-                    field={field}
-                    fieldState={fieldState}
-                    item={confirmPasswordInputValues}
+                    item={emailInputValues}
                   />
                 )}
               />{" "}
@@ -85,4 +81,4 @@ const ResetPasswordAction = () => {
   );
 };
 
-export default memo(ResetPasswordAction);
+export default memo(RequestResetPasswordAction);

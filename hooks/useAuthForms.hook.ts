@@ -6,7 +6,10 @@ import {
   EmailSchemaType,
   signInSchema,
   signUpSchema,
+  passwordSchema,
+  PasswordSchemaType,
 } from "@/validations/user.zod";
+
 import { zodResolver } from "@hookform/resolvers/zod";
 
 export const useSignIn = () => {
@@ -35,11 +38,23 @@ export const useSignUp = () => {
   return form;
 };
 
-export const useResetPasswordForm = () => {
+export const useRequestResetPasswordForm = () => {
   const form = useForm<EmailSchemaType>({
     resolver: zodResolver(emailSchema),
     defaultValues: {
       email: "",
+    },
+  });
+
+  return form;
+};
+
+export const useResetPasswordForm = () => {
+  const form = useForm<PasswordSchemaType>({
+    resolver: zodResolver(passwordSchema),
+    defaultValues: {
+      password: "",
+      confirmPassword: "",
     },
   });
 

@@ -35,6 +35,7 @@ export async function signOutAction() {
   redirect("/");
 }
 
+// TODO check if user email in the database
 export async function requestResetPasswordAction(email: string) {
   return await auth.api.requestPasswordReset({
     body: {
@@ -42,4 +43,21 @@ export async function requestResetPasswordAction(email: string) {
       redirectTo: `${process.env.BETTER_AUTH_URL}/reset-password`,
     },
   });
+}
+
+export async function resetPasswordAction(newPassword: string) {
+  const token = new URLSearchParams(window.location.search).get("token");
+
+  if (!token) {
+    throw new Error("Token not found"); // or any other appropriate error handling
+  }
+
+  await auth.api.resetPassword({
+    body: {
+      newPassword: newPassword, // required
+      token, // required
+    },
+  });
+
+  redirect("/dashboard");
 }
