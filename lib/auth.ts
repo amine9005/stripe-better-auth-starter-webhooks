@@ -2,7 +2,8 @@ import { betterAuth } from "better-auth";
 import { nextCookies } from "better-auth/next-js";
 import { mongodbAdapter } from "better-auth/adapters/mongodb";
 import { getClient } from "@/db/mongoose";
-import { jwt } from "better-auth/plugins";
+// import { bearer } from "better-auth/plugins";
+
 import {
   sendResetPasswordEmailAction,
   sendVerificationEmailAction,
@@ -34,5 +35,5 @@ export const auth = betterAuth({
     },
   },
 
-  plugins: [nextCookies(), jwt()],
+  plugins: [nextCookies()],
 });

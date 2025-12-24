@@ -4,6 +4,8 @@ import InputField from "../../molecules/input-field/InputField.molecule";
 import { Controller } from "react-hook-form";
 import { SignInFormType } from "@/validations/user.zod";
 import { FormEvent, memo } from "react";
+import LabelWithSideLink from "../../molecules/label-with-side-link/LabelWithSideLink.molecule";
+import FormsCheckBoxMolecule from "../../molecules/forms-checkbox/FormsCheckBox.molecule";
 
 interface Props {
   form: SignInFormType;
@@ -19,15 +21,23 @@ const emailInputValues = {
   autoComplete: "off",
 };
 
+const passwordLabelValues = {
+  labelText: "Password",
+  href: "/request-reset-password",
+  linkText: "Forgot Password?",
+};
+
 const passwordInputValues = {
   name: "password",
-  labelTitle: "Password",
+  labelTitle: <LabelWithSideLink values={passwordLabelValues} />,
   type: "password",
   placeholder: "Your password ",
   autoComplete: "off",
 };
 
 const LoginFormContent = ({ form, formName, handle_submit }: Props) => {
+  const checkboxValues = { labelTitle: "Remember Me", form };
+
   return (
     <form id={`form-${formName}`} onSubmit={handle_submit}>
       <FieldGroup>
@@ -53,9 +63,10 @@ const LoginFormContent = ({ form, formName, handle_submit }: Props) => {
             />
           )}
         />
+        <FormsCheckBoxMolecule values={checkboxValues} className="mt-4" />
       </FieldGroup>
     </form>
   );
 };
 
-export default memo(LoginFormContent);
+export default LoginFormContent;

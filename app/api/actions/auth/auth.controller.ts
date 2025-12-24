@@ -3,7 +3,9 @@ import { auth } from "@/lib/auth";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { SignUpSchemaType, SignInSchemaType } from "@/validations/user.zod";
+import { getClient } from "@/db/mongoose";
 
+const db = await getClient();
 export async function signUpAction(formData: SignUpSchemaType) {
   const name = formData.username as string;
   const email = formData.email as string;
@@ -15,16 +17,15 @@ export async function signUpAction(formData: SignUpSchemaType) {
       password,
     },
   });
-
-  redirect("/verify-email");
 }
 
 export async function signInAction(formData: SignInSchemaType) {
   const email = formData.email as string;
   const password = formData.password as string;
-  await auth.api.signInEmail({ body: { email, password } });
-
-  redirect("/");
+  const rememberMe = formData.remember as boolean;
+  await auth.api.signInEmail({
+    body: { email, password, rememberMe },
+  });
 }
 
 export async function signOutAction() {
@@ -37,6 +38,10 @@ export async function signOutAction() {
 
 // TODO check if user email in the database
 export async function requestResetPasswordAction(email: string) {
+  const user = await db.collection("user").findOne({ email });
+
+  if (!user) throw new Error("User Email Not Found");
+
   return await auth.api.requestPasswordReset({
     body: {
       email: email, // required
@@ -45,13 +50,7 @@ export async function requestResetPasswordAction(email: string) {
   });
 }
 
-export async function resetPasswordAction(newPassword: string) {
-  const token = new URLSearchParams(window.location.search).get("token");
-
-  if (!token) {
-    throw new Error("Token not found"); // or any other appropriate error handling
-  }
-
+export async function resetPasswordAction(newPassword: string, token: string) {
   await auth.api.resetPassword({
     body: {
       newPassword: newPassword, // required
@@ -59,5 +58,5 @@ export async function resetPasswordAction(newPassword: string) {
     },
   });
 
-  redirect("/dashboard");
+  return { success: true };
 }

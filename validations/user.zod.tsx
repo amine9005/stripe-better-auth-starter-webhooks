@@ -40,6 +40,7 @@ export const signUpSchema = z
 export const signInSchema = z.object({
   email: emailValidation,
   password: passwordValidation,
+  remember: z.boolean().optional(),
 });
 
 export const emailSchema = z.object({
@@ -56,7 +57,7 @@ export const passwordSchema = z
       ctx.addIssue({
         code: "custom",
         message: "Passwords do not match",
-        path: ["confirmPassword", "password"],
+        path: ["confirmPassword"],
       });
     }
   });

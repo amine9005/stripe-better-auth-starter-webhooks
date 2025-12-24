@@ -18,6 +18,7 @@ export const useSignIn = () => {
     defaultValues: {
       email: "",
       password: "",
+      remember: false,
     },
   });
 

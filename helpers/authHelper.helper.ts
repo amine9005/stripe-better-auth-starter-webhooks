@@ -1,14 +1,18 @@
-import { authClient } from "@/lib/auth-client";
+import { auth } from "@/lib/auth";
+import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 
 export async function getSession() {
   try {
-    const { error, data } = await authClient.getSession();
-    if (error) {
-      throw new Error(`Authentication Error ${error}`);
+    const session = await auth.api.getSession({
+      headers: await headers(),
+    });
+
+    if (!session) {
+      throw new Error(`Authentication Error`);
     }
 
-    return data;
+    return session;
   } catch {
     console.log("Authentication failed");
   }

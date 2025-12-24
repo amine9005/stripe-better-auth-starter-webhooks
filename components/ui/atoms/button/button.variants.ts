@@ -1,9 +1,9 @@
 import { cva } from "class-variance-authority";
 
 export const variantOptions = {
-  default: "bg-primary text-primary-foreground hover:bg-primary/90",
+  default: "bg-primary text-primary-foreground hover:bg-primary/85",
   destructive:
-    "bg-destructive text-white hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60",
+    "bg-destructive text-white hover:bg-destructive/85 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60",
   outline:
     "border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50",
   secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
@@ -20,6 +20,7 @@ export const widthOptions = {
 };
 
 export type WidthOptions = keyof typeof widthOptions;
+export type VariantOptions = keyof typeof variantOptions;
 
 export const sizeOptions = {
   default: "h-9 px-4 py-2 has-[>svg]:px-3",

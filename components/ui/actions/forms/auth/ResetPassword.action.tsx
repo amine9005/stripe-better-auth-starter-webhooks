@@ -14,10 +14,17 @@ import LoadingSubmitButton from "@/components/ui/molecules/loading-submit-button
 import { useResetPasswordSubmit } from "@/hooks/useAuthSubmit.hook";
 import { useResetPasswordForm } from "@/hooks/useAuthForms.hook";
 import { memo } from "react";
+import { redirect } from "next/navigation";
 
 const ResetPasswordAction = () => {
   const form = useResetPasswordForm();
   const { handle_submit, loading } = useResetPasswordSubmit();
+
+  const token = new URLSearchParams(window.location.search).get("token");
+
+  if (!token) {
+    redirect("/request-reset-password");
+  }
 
   const formName = "reset-password";
 
@@ -47,7 +54,7 @@ const ResetPasswordAction = () => {
         <CardContent>
           <form
             id={"form-" + formName}
-            onSubmit={(e) => handle_submit(e, form)}
+            onSubmit={(e) => handle_submit(e, form, token)}
           >
             <FieldGroup>
               <Controller

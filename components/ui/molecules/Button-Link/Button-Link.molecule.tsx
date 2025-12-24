@@ -1,14 +1,21 @@
 import { Button } from "@/components/ui/atoms/button/button";
 import Link from "next/link";
+import { WidthOptions } from "@/components/ui/atoms/button/button.variants";
 
 interface Props {
   children: React.ReactNode;
   href: string;
+  width?: WidthOptions;
 }
 
-const ButtonLink = ({ children, href }: Props) => {
+const ButtonLink = ({ width, children, href }: Props) => {
   return (
-    <Button variant={"link"} className="text-primary font-bold px-1">
+    <Button
+      width={width}
+      variant={"link"}
+      type="button"
+      className="text-primary font-bold px-1"
+    >
       <Link href={href}> {children}</Link>
     </Button>
   );

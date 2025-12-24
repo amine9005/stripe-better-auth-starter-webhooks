@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
-// import { Inter } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
+import { Toaster } from "react-hot-toast";
 // import { ThemeProvider } from "@/providers/ThemeProvider";
 // import { Navbar } from "@/components/ui/organisms/Navbar";
 
-// const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Stripe Subscriptions",
@@ -18,9 +19,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-      // className={inter.className}
-      >
+      <body className={inter.className}>
+        <Toaster />
         {/* <ThemeProvider */}
         {/* attribute="class" */}
         {/* defaultTheme="dark" */}

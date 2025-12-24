@@ -14,6 +14,7 @@ import { H2 } from "@/components/ui/atoms/heading/heading2";
 import LoadingSubmitButton from "@/components/ui/molecules/loading-submit-button/loadingSubmitButton.molecule";
 import SignUpContentOrganism from "./SignUpContent.organism";
 import ButtonLink from "../../molecules/Button-Link/Button-Link.molecule";
+import { Button } from "../../atoms/button/button";
 
 interface Card {
   title?: React.ReactNode;
@@ -51,18 +52,22 @@ const LoginFormCard = ({
         />
       </CardContent>
       <CardFooter className="flex flex-col space-y-4">
+        <div className="flex justify-center items-center w-full">
+          <LoadingSubmitButton
+            width="full"
+            loading={loading}
+            formName={formName}
+          >
+            Sign Up
+          </LoadingSubmitButton>
+        </div>
         <div>
           have an account?
           <ButtonLink href="/sign-in">Sign In</ButtonLink>
-        </div>
-        <div className="flex justify-center items-center">
-          <LoadingSubmitButton loading={loading} formName={formName}>
-            Sign Up
-          </LoadingSubmitButton>
         </div>
       </CardFooter>
     </Card>
   );
 };
 
-export default memo(LoginFormCard);
+export default LoginFormCard;

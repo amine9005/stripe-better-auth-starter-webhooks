@@ -24,7 +24,7 @@ const EmailVerification = ({ name, url }: { name: string; url: string }) => {
             <Text style={text}>Hello {name},</Text>
 
             <Text style={text}>
-              Someone recently requested a password change for your Dropbox
+              Someone recently requested a password change for your MySite
               account. If this was you, you can set a new password here:
             </Text>
             <Button href={url} style={button}>

@@ -12,10 +12,8 @@ import { SignInFormType } from "@/validations/user.zod";
 import { FormEvent, memo } from "react";
 import { H2 } from "@/components/ui/atoms/heading/heading2";
 import LoadingSubmitButton from "@/components/ui/molecules/loading-submit-button/loadingSubmitButton.molecule";
-import ButtonLink from "../../molecules/Button-Link/Button-Link.molecule";
-import { Button } from "../../atoms/button/button";
-import { useGoogleSignInHook } from "@/hooks/useGoogleSignIn.hook";
-import Link from "next/link";
+import ButtonLink from "@/components/ui/molecules/Button-Link/Button-Link.molecule";
+import SocialLoginsOrganism from "@/components/ui/organisms/social-logins/SocialLogins.organism";
 interface Card {
   title?: React.ReactNode;
   description?: React.ReactNode;
@@ -25,7 +23,7 @@ interface Props {
   form: SignInFormType;
   card: Card;
   formName: string;
-  loadings: boolean;
+  loading: boolean;
   handle_submit: (formEvent: FormEvent) => void;
 }
 
@@ -34,10 +32,8 @@ const SignInFormCard = ({
   card,
   formName,
   handle_submit,
-  loadings,
+  loading,
 }: Props) => {
-  const { signInWithGoogleFunc, loading } = useGoogleSignInHook();
-
   return (
     <Card className="w-full sm:max-w-md">
       <CardHeader>
@@ -53,31 +49,25 @@ const SignInFormCard = ({
           handle_submit={handle_submit}
         />
       </CardContent>
-      <CardFooter className="flex flex-col space-y-4">
-        <Link href={"/reset-password"}>Reset Password</Link>
+      <CardFooter className="flex flex-col space-y-2">
+        <div className="flex justify-center items-center w-full">
+          <LoadingSubmitButton
+            width={"full"}
+            loading={loading}
+            formName={formName}
+          >
+            Sign In
+          </LoadingSubmitButton>
+        </div>
+        <SocialLoginsOrganism />
+
         <div>
           Don&apos;t have an account?
           <ButtonLink href="/sign-up">Sign Up</ButtonLink>
         </div>
-        <div className="flex justify-center items-center">
-          <LoadingSubmitButton loading={loadings} formName={formName}>
-            Sign In
-          </LoadingSubmitButton>
-        </div>
-        <span>Or</span>
-        <Button
-          disabled={loading}
-          width={"full"}
-          variant={"secondary"}
-          type="button"
-          onClick={signInWithGoogleFunc}
-        >
-          {" "}
-          Google Sign In
-        </Button>
       </CardFooter>
     </Card>
   );
 };
 
-export default memo(SignInFormCard);
+export default SignInFormCard;
