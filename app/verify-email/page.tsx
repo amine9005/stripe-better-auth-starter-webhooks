@@ -1,10 +1,10 @@
-import VerifiyEmailAction from "@/components/ui/actions/forms/auth/VerifiyEmail.action";
+import VerifyEmailAction from "@/components/ui/actions/forms/auth/VerifiyEmail.action";
 import { authNotRequired } from "@/helpers/authHelper.helper";
 
 const VerifyEmailPage = async () => {
   await authNotRequired();
 
-  return <VerifiyEmailAction />;
+  return <VerifyEmailAction />;
 };
 
 export default VerifyEmailPage;

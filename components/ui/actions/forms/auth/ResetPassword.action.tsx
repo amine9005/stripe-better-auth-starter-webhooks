@@ -14,10 +14,11 @@ import LoadingSubmitButton from "@/components/ui/molecules/loading-submit-button
 import { useResetPasswordSubmit } from "@/hooks/useAuthSubmit.hook";
 import { useResetPasswordForm } from "@/hooks/useAuthForms.hook";
 import { memo } from "react";
-import { redirect } from "next/navigation";
+import { redirect, useSearchParams } from "next/navigation";
 
 const ResetPasswordAction = () => {
-  const token = new URLSearchParams(window.location.search).get("token");
+  const searchParams = useSearchParams();
+  const token = searchParams.get("token");
 
   const form = useResetPasswordForm();
   const { handleSubmit } = form;

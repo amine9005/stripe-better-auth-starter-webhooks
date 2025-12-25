@@ -95,4 +95,4 @@ const SignUpFormContent = ({ form, formName, handle_submit }: Props) => {
   );
 };
 
-export default SignUpFormContent;
+export default memo(SignUpFormContent);

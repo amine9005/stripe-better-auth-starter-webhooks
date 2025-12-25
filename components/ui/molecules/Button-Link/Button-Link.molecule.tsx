@@ -15,9 +15,12 @@ const ButtonLink = ({ width, children, href }: Props) => {
       width={width}
       variant={"link"}
       type="button"
-      className="text-primary font-bold px-1"
+      className="text-primary font-bold px-1 ml-3"
     >
-      <Link href={href}> {children}</Link>
+      <Link href={href} className="text-[1rem]">
+        {" "}
+        {children}
+      </Link>
     </Button>
   );
 };

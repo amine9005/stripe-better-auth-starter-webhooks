@@ -4,12 +4,10 @@ import {
   signInAction,
   signUpAction,
 } from "@/app/api/actions/auth/auth.controller";
-import { checkAndWatchForm } from "@/helpers/formsHelpers";
 import { signInWithGoogleClient } from "@/lib/auth-client";
 import {
   EmailFormType,
   EmailSchemaType,
-  PasswordFormType,
   PasswordSchemaType,
   SignInFormType,
   SignInSchemaType,
@@ -17,7 +15,7 @@ import {
   SignUpSchemaType,
 } from "@/validations/user.zod";
 import { redirect } from "next/navigation";
-import { FormEvent, useCallback, useState } from "react";
+import { useCallback, useState } from "react";
 import { SubmitHandler } from "react-hook-form";
 import { toast } from "react-hot-toast";
 

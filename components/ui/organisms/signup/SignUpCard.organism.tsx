@@ -14,7 +14,6 @@ import { H2 } from "@/components/ui/atoms/heading/heading2";
 import LoadingSubmitButton from "@/components/ui/molecules/loading-submit-button/loadingSubmitButton.molecule";
 import SignUpContentOrganism from "./SignUpContent.organism";
 import ButtonLink from "../../molecules/Button-Link/Button-Link.molecule";
-import { Button } from "../../atoms/button/button";
 
 interface Card {
   title?: React.ReactNode;
@@ -70,4 +69,4 @@ const LoginFormCard = ({
   );
 };
 
-export default LoginFormCard;
+export default memo(LoginFormCard);

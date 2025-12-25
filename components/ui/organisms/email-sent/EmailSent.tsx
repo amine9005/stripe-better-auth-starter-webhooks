@@ -30,13 +30,13 @@ const EmailSent = ({ props }: inputsType) => {
       <Card className="w-87.5">
         <CardHeader>
           <CardTitle>{props.cardTitle}</CardTitle>
-          <CardDescription className="text-green-500">
+          <CardDescription className="text-green-600 text-lg">
             {props.cardDescription}
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <Alert variant="default" className="text-green-500">
-            <CheckCircle2 className="h-8 w-8" />
+          <Alert variant="default" className="text-green-600">
+            <CheckCircle2 />
             <AlertDescription>{props.alertDescription}</AlertDescription>
           </Alert>
         </CardContent>
