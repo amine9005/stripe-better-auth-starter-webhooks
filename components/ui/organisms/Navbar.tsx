@@ -9,9 +9,13 @@ import { LogOut } from "lucide-react";
 import { ModeToggle } from "./ModeToggle";
 import { Button, buttonVariants } from "../atoms/button/button";
 import Link from "next/link";
-import { signOutAction } from "@/app/api/actions/auth/auth.controller";
+import {
+  isAuthenticatedAction,
+  isSubscribedAction,
+  signOutAction,
+} from "@/app/api/actions/auth/auth.controller";
 import { useEffect, useState } from "react";
-import { getUser } from "@/helpers/authClientHelper.helper";
+import { isAuthenticatedActionClient } from "@/helpers/authClientHelper.helper";
 interface RouteProps {
   href: string;
   label: string;
@@ -37,14 +41,21 @@ const routeList: RouteProps[] = [
 
 export const Navbar = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isSubscribed, setIsSubscribed] = useState(false);
 
   useEffect(() => {
     const setUser = async () => {
-      setIsAuthenticated((await getUser()) ? true : false);
+      setIsAuthenticated(await isAuthenticatedAction());
     };
     setUser();
   });
-  const isSubscribed = true;
+
+  useEffect(() => {
+    const setSubscription = async () => {
+      setIsSubscribed(await isSubscribedAction());
+    };
+    setSubscription();
+  });
 
   return (
     <header
@@ -82,7 +93,7 @@ export const Navbar = () => {
             {isAuthenticated && isSubscribed && (
               <Link
                 rel="noreferrer noopener"
-                href={"#"}
+                href={process.env.NEXT_PUBLIC_STRIPE_CUSTOMER_PORTAL_URL!}
                 target="_blank"
                 className={`text-[17px] ${buttonVariants({
                   variant: "ghost",
