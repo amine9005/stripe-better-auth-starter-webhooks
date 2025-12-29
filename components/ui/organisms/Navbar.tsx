@@ -15,7 +15,6 @@ import {
   signOutAction,
 } from "@/app/api/actions/auth/auth.controller";
 import { useEffect, useState } from "react";
-import { isAuthenticatedActionClient } from "@/helpers/authClientHelper.helper";
 interface RouteProps {
   href: string;
   label: string;
@@ -93,7 +92,10 @@ export const Navbar = () => {
             {isAuthenticated && isSubscribed && (
               <Link
                 rel="noreferrer noopener"
-                href={process.env.NEXT_PUBLIC_STRIPE_CUSTOMER_PORTAL_URL!}
+                href={
+                  process.env.NEXT_PUBLIC_STRIPE_CUSTOMER_PORTAL_URL!
+                  // +`?prefilled_email=${user.email}`
+                }
                 target="_blank"
                 className={`text-[17px] ${buttonVariants({
                   variant: "ghost",

@@ -111,14 +111,89 @@ export async function POST(req: NextRequest) {
             } else {
             }
           }
-
-          await dbSession.commitTransaction();
-          dbSession.endSession();
-          break;
         }
+        break;
+
+      // case "customer.subscription.updated":
+      //   const subscription = await stripeClient.subscriptions.retrieve(
+      //     event.data.object.id,
+      //   );
+
+      //   const user = await db
+      //     .collection("user")
+      //     .findOne({ customerId: subscription.customer });
+
+      //   if (!user) {
+      //     throw new Error("User not found can't update subscription");
+      //   }
+
+      //   const priceId = subscription?.items.data[0].plan.id;
+
+      //   const endDate = new Date();
+
+      //   if (priceId === process.env.STRIPE_PERSONAL_YEARLY_PRICE_ID) {
+      //     endDate.setFullYear(endDate.getFullYear() + 1);
+      //   } else if (priceId === process.env.STRIPE_PERSONAL_MONTHLY_PRICE_ID) {
+      //     endDate.setMonth(endDate.getMonth() + 1);
+      //   } else {
+      //     throw new Error("Invalid priceId");
+      //   }
+
+      //   const sub = await SubscriptionModel.findOneAndUpdate(
+      //     {
+      //       userId: user._id,
+      //     },
+      //     {
+      //       plan: "premium",
+      //       period:
+      //         priceId === process.env.STRIPE_PERSONAL_YEARLY_PRICE_ID
+      //           ? "yearly"
+      //           : "monthly",
+      //       startDate: new Date(),
+      //       endDate: endDate,
+      //     },
+
+      //     {
+      //       session: dbSession,
+      //       upsert: true,
+      //       returnDocument: "after",
+      //     },
+      //   );
+      //   if (!sub) {
+      //     throw new Error("Subscription not found");
+      //   }
+      //   user.plan = "premium";
+
+      //   user.save({ session: dbSession });
+
+      //   break;
+
+      case "customer.subscription.deleted":
+        {
+          const subscription = await stripeClient.subscriptions.retrieve(
+            event.data.object.id,
+          );
+          console.log("subscription deleted");
+          const user = await db
+            .collection("user")
+            .findOne({ customerId: subscription.customer });
+          if (user) {
+            user.plan = "free";
+            await user.save({ session: dbSession });
+          } else {
+            console.log("User not found for the subscription deleted event");
+            throw new Error(
+              "User not found for the subscription deleted event",
+            );
+          }
+        }
+        break;
+
       default:
         console.log("Unhandled event type ", event.type);
     }
+    await dbSession.commitTransaction();
+    dbSession.endSession();
   } catch (error) {
     await dbSession.abortTransaction();
     dbSession.endSession();
