@@ -49,13 +49,13 @@ export async function POST(req: NextRequest) {
           }
 
           if (!user.customerId) {
-            await db
-              .collection("user")
-              .updateOne(
-                { id: user._id },
-                { $set: { customerId } },
-                { session: dbSession },
-              );
+            await db.collection("user").findOneAndUpdate(
+              { _id: user._id },
+              {
+                $set: { customerId: customerId },
+              },
+              { session: dbSession },
+            );
           }
 
           const lineItems = session.line_items?.data || [];
@@ -173,13 +173,17 @@ export async function POST(req: NextRequest) {
           const subscription = await stripeClient.subscriptions.retrieve(
             event.data.object.id,
           );
-          console.log("subscription deleted");
           const user = await db
             .collection("user")
             .findOne({ customerId: subscription.customer });
           if (user) {
-            user.plan = "free";
-            await user.save({ session: dbSession });
+            await db.collection("user").findOneAndUpdate(
+              { _id: user._id },
+              {
+                $set: { plan: "free" },
+              },
+              { session: dbSession },
+            );
           } else {
             console.log("User not found for the subscription deleted event");
             throw new Error(
@@ -187,6 +191,8 @@ export async function POST(req: NextRequest) {
             );
           }
         }
+        // console.log("subscription deleted");
+
         break;
 
       default:

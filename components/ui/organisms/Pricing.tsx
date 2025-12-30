@@ -1,5 +1,4 @@
 import { Badge } from "@/components/ui/atoms/badge/badge";
-import { buttonVariants } from "@/components/ui/atoms/button/button";
 import {
   Card,
   CardContent,

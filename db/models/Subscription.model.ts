@@ -14,7 +14,6 @@ const subscriptionSchema = new mongoose.Schema(
   { timestamps: true },
 );
 
-
 const SubscriptionModel =
   mongoose.model("subscription", subscriptionSchema) ||
   mongoose.models.subscription;

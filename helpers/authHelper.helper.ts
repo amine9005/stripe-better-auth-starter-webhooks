@@ -1,4 +1,5 @@
 "use server";
+import { isSubscribedAction } from "@/app/api/actions/auth/auth.controller";
 import { auth } from "@/lib/auth";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
@@ -34,6 +35,14 @@ export async function authNotRequired() {
   console.log("auth not required ", session);
 
   if (session) {
+    redirect("/");
+  }
+}
+
+export async function isPremiumUser() {
+  const result = await isSubscribedAction();
+
+  if (!result) {
     redirect("/");
   }
 }

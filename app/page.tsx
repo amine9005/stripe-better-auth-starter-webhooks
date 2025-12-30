@@ -1,3 +1,4 @@
+// "use client";
 import Hero from "@/components/ui/organisms/Hero";
 import { Pricing } from "@/components/ui/organisms/Pricing";
 
